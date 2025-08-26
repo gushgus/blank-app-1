@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import time # 시간 측정을 위해 time 라이브러리를 가져옵니다.
-from st_keyup import keyup
+from st_keyup import st_keyup
 
 # --- 앱 초기 설정 ---
 st.set_page_config(page_title="분류하기 게임", page_icon="⏰")
@@ -72,7 +72,7 @@ if st.session_state.game_over:
     st.balloons()
 else:
     # --- 게임이 진행 중일 때만 입력 및 박스를 표시합니다. ---
-    pressed_key = keyup(key=["ArrowLeft", "ArrowRight"], debounce=200)
+    pressed_key = st_keyup(key=["ArrowLeft", "ArrowRight"], debounce=200)
 
     if pressed_key == "ArrowLeft":
         handle_classification('왼쪽')
